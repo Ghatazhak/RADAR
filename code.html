@@ -31,7 +31,7 @@
     <!-- Nav Section -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/index.html">RADAR</a>
+        <a class="navbar-brand logoFont" href="/index.html">RADAR</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -70,25 +70,89 @@
     <!-- Main Section -->
     <main class="flex-shrink-0">
       <div class="container py-4 px-5 mt-5">
-        <h2 class="border-1 border-bottom border-dark">
+        <h2 class="border-1 border-bottom border-dark logoFont">
           The Code for RADAR
         </h2>
         <div class="row row-cols-1 row-cols-lg-2">
           <div class="col-lg-8">
             <pre class="line-numbers"><code class="language-javascript">
                     <!-- Code Goes here -->
-                    // Call Hello World
-                    function HelloWorld(){
-                        alert("Hello World");
+                    // get the string from the page.
+                    function getString(){
+                        document.getElementById("alert").classList.add("invisible");
+                    
+                        let userString = document.getElementById("userString").value;
+                    
+                        userString = cleanString(userString);
+                        
+                        let revString = reverseString(userString);
+                    
+                        let isPalindrome = checkForPalindrome(userString,revString);
+                    
+                        if(isPalindrome){
+                            displayString(revString);
+                        }
+                        
                     }
+                    
+                    function cleanString(userString){
+                        
+                        userString = userString.replace(/[^a-zA-Z]/g, "").toLowerCase();
+                        return userString;
+                    }
+                    
+                    
+                    function checkForPalindrome(userString,revString){
+                        if(userString == revString){
+                            return true;
+                        } else{
+                            return false;
+                        }
+                    }
+                    
+                    
+                    function reverseString(userString){
+                    
+                        let revString = "";
+                    
+                        for (let index = userString.length - 1; index >= 0; index--) {
+                            
+                            revString += userString[index];
+                        }
+                    
+                        return revString;
+                    }
+                  
+                    function displayString(revString){
+                        document.getElementById("message").innerHTML = `Your string is a palindrome: ${revString}`;
+                    
+                        document.getElementById("alert").classList.remove("invisible");
+                    }
+                    
                 </code>
                 </pre>
           </div>
           <div class="col-lg-4">
-            <p>Overview of code functionality</p>
-            <h5>First Function</h5>
+            <p>This JavaScript program takes a string as input and checks wether it is the same string in reverse.</p>
+            <h5>getValues()</h5>
             <p>
-              The definition of what the function does.
+              This function gets the string from the document object model.
+            </p>
+            <h5>cleanString()</h5>
+            <p>
+              This function changes the user string. It makes it lower case and removes spaces and special characters from it.
+            </p>
+            <h5>reverseString()</h5>
+            <p>
+              This function reverses the string using a loop.
+            </p>
+            <h5>checkForPalindrome()</h5>
+            <p>
+              This function checks wether the string is the same in reverse. If it is a palindrome it calls the displayString function.
+            </p>
+            <h5>displayString()</h5>
+            <p>
+              This function sends the string to the document object model.
             </p>
           </div>
         </div>
