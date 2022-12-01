@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #1D5888;
-    --secondary-color: #ff993b;
+    --primary-color: #000;
+    --secondary-color: #000;
     --dark-color: #292929;
     --white-color: #e7e7e7;
 }
@@ -49,6 +49,16 @@ footer .social>a:hover {
 
 .cssicon {
     color: rgb(11, 82, 214);
+}
+
+.githubicon {
+    color: #000;
+}
+
+.logoFont {
+    font-family: 'Luckiest Guy', cursive;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Odibee Sans', cursive;
 }
 
 .checklist > li i {
