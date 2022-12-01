@@ -94,15 +94,9 @@
                     }
                     
                     function cleanString(userString){
-                        
-                        // other ways to change strings
-                        // cleanString = userString.toLowerCase();
-                        // cleanString = cleanString.replace(' ', '');
-                        // cleanString = cleanString.split(' ').join('')
                     
                         userString = userString.replace(/[^a-zA-Z]/g, "").toLowerCase();
                     
-                        // returns string
                         return userString;
                     }
                     
