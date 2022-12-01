@@ -8,12 +8,10 @@ function getString(){
     
     let revString = reverseString(userString);
 
-    let isPalindrome = checkForPalindrome(userString,revString);
+    let returnObj = checkForPalindrome(userString,revString);
 
-    if(isPalindrome){
-        displayString(revString);
-    }
-    
+     displayString(returnObj);
+     
 }
 
 function cleanString(userString){
@@ -31,38 +29,33 @@ function cleanString(userString){
 
 
 function checkForPalindrome(userString,revString){
-    //check if the string is a palindrome
+
+    let returnObj = {};
+
     if(userString == revString){
-        return true;
+        returnObj.msg = "Well done! You entered a palindrome!";
     } else{
-        return false;
+        returnObj.msg = "Sorry! You did not enter a palindrome!";
     }
+
+    returnObj.reversed = revString;
+    return returnObj;
 }
 
-
-// reverse the string.
 function reverseString(userString){
-
-    
+ 
     let revString = "";
 
-
-    // reverse a string using a for loop
     for (let index = userString.length - 1; index >= 0; index--) {
         
         revString += userString[index];
     }
-
     return revString;
 }
 
-
-// display the reverse string.
-function displayString(revString){
-    // write to the DOM
-    document.getElementById("message").innerHTML = `Your string is a palindrome: ${revString}`;
-
-    // show the alert box
+function displayString(returnObj){
+    document.getElementById("alertHeader").innerHTML = returnObj.msg;
+    document.getElementById("message").innerHTML = `Your string reveresed is: ${returnObj.reversed}`;
     document.getElementById("alert").classList.remove("invisible");
 }
 
